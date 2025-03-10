@@ -1,6 +1,7 @@
 package file
 
 import (
+	"encoding/hex"
 	"hash"
 	"io"
 	"log"
@@ -67,5 +68,5 @@ func GetFileHash(path string, h hash.Hash) []byte {
 
 func GetFileHashString(path string, h hash.Hash) string {
 	hs := GetFileHash(path, h)
-	return string(hs)
+	return hex.EncodeToString(hs)
 }
