@@ -68,6 +68,12 @@ func TestGetFileHash(t *testing.T) {
 		t.Fatalf("Expected hash %s, but got %s", expectedHash, hashString)
 	}
 
+	//Test GetFileHashString too
+	hashString = GetFileHashString(fileName, h)
+	if hashString != expectedHash {
+		t.Fatalf("Expected hash %s, but got %s", expectedHash, hashString)
+	}
+
 	// Clean up
 	if err := DeleteFile(fileName); err != nil {
 		t.Fatalf("Failed to delete test file: %v", err)
